@@ -1,0 +1,17 @@
+server:
+  ha:
+    enabled: false
+    raft:
+      enabled: true
+  service:
+    type: ClusterIP
+    active:
+      enabled: false
+    standby:
+      enabled: false
+    instanceSelector:
+      enabled: false
+ui:
+  enabled: true
+  serviceType: LoadBalancer
+  serviceNodePort: 8081
