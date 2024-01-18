@@ -15,4 +15,3 @@ server:
 ui:
   enabled: true
   serviceType: LoadBalancer
-  serviceNodePort: 8899
