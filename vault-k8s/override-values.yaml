@@ -3,6 +3,7 @@ server:
     enabled: false
     raft:
       enabled: true
+    replicas: 1
   service:
     type: ClusterIP
     active:
@@ -14,4 +15,4 @@ server:
 ui:
   enabled: true
   serviceType: LoadBalancer
-  serviceNodePort: 8081
+  serviceNodePort: 8899

@@ -18,7 +18,6 @@ client:
   enabled: true
   # enable grpc on your client to support consul consul connect
   grpc: true
-
 ui:
   enabled: true
   service:
