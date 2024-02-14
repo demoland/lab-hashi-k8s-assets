@@ -47,3 +47,4 @@ server:
 ui:
   enabled: true
   serviceType: LoadBalancer
+  port: 8443
