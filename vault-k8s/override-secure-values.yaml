@@ -44,3 +44,6 @@ server:
             }
             disable_mlock = true
             service_registration "kubernetes" {}
+ui:
+  enabled: true
+  serviceType: LoadBalancer
