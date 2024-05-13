@@ -3,8 +3,6 @@ global:
    tlsDisable: false
 injector:
    enabled: true
-service:
-   type: LoadBalancer
 server:
    extraEnvironmentVars:
       VAULT_CACERT: /vault/userconfig/vault-ha-tls/vault.ca
