@@ -3,6 +3,7 @@ global:
    tlsDisable: false
 injector:
    enabled: true
+   authPath: auth/kubernetes-dc1
 server:
    extraEnvironmentVars:
       VAULT_CACERT: /vault/userconfig/vault-ha-tls/vault.ca
