@@ -5,16 +5,14 @@ global:
   secretsBackend:
     vault:
       enabled: true
-      consulServerRole: consul-server
-      consulClientRole: consul-client
-      consulCARole: consul-ca
-      connectCA:
-        address: https://vault.vault:8200
-        rootPKIPath: connect-root/
-        intermediatePKIPath: connect-intermediate-dc1/
-        additionalConfig: "{\"connect\": [{ \"ca_config\": [{ \"namespace\": \"admin\"}]}]}"
-      agentAnnotations: |
-        "vault.hashicorp.com/namespace": "admin"
+      # consulServerRole: consul-server
+      # consulClientRole: consul-client
+      # consulCARole: consul-ca
+      # connectCA:
+      #   address: https://vault-internal.vault:8200
+      #   rootPKIPath: connect-root/
+      #   intermediatePKIPath: connect-intermediate-dc1/
+      #   additionalConfig: "{\"connect\": [{ \"ca_config\": [{ \"namespace\": \"admin\"}]}]}"
   tls:
     enabled: true
     enableAutoEncrypt: true
