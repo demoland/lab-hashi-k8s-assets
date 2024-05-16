@@ -36,8 +36,12 @@ server:
 connectInject:
   replicas: 1
   enabled: true
+  default: true
   transparentProxy:
     defaultEnabled: true
+  apiGateway:
+    managedGatewayClass:
+      serviceType: LoadBalancer
 
 prometheus:
   enabled: true
@@ -49,13 +53,6 @@ meshGateway:
   enabled: false
   replicas: 1
 
-ingressGateways:
-  replicas: 1
-  enabled: true
-  gateways:
-    - name: ingress-gateway
-      service:
-        type: LoadBalancer
 terminatingGateways:
   replicas: 1
   enabled: true
