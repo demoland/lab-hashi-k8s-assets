@@ -18,6 +18,7 @@ global:
     enableAutoEncrypt: true
     caCert:
       secretName: "pki/cert/ca"
+    verify: false
   federation:
     enabled: false
     createFederationSecret: false
