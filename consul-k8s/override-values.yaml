@@ -9,7 +9,7 @@ global:
       consulClientRole: consul-client
       consulCARole: consul-ca
       connectCA:
-        address: https://vault.vault:8443
+        address: https://vault-internal.vault:8200
         rootPKIPath: connect-root/
         intermediatePKIPath: connect-intermediate-dc1/
         additionalConfig: "{\"connect\": [{ \"ca_config\": [{ \"namespace\": \"admin\"}]}]}"
