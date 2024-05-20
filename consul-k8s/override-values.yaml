@@ -41,31 +41,19 @@ connectInject:
   apiGateway:
     managedGatewayClass:
       serviceType: LoadBalancer
-
 prometheus:
   enabled: true
-
 controller:
   enabled: true
-
 meshGateway:
   enabled: false
   replicas: 1
-
-terminatingGateways:
-  replicas: 1
-  enabled: true
-  gateways:
-    - name: terminating-gateway
-      service:
-        type: LoadBalancer
 ui:
   enabled: true
   service:
     type: LoadBalancer
     port:
-      https: 8443
-      http: 80
+      http: 8080
   metrics:
     provider: prometheus
     baseURL: http://prometheus-server
