@@ -49,11 +49,12 @@ meshGateway:
   enabled: false
   replicas: 1
 ui:
-  enabled: true
   service:
+    enabled: true
     type: LoadBalancer
     port:
-      http: 8444
+      http: 8080
+      https: 443
   metrics:
     provider: prometheus
     baseURL: http://prometheus-server
