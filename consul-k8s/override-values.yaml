@@ -53,7 +53,7 @@ ui:
   service:
     type: LoadBalancer
     port:
-      http: 8080
+      http: 8444
   metrics:
     provider: prometheus
     baseURL: http://prometheus-server
