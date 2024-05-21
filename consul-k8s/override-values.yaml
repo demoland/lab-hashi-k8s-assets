@@ -2,6 +2,7 @@ global:
   datacenter: "dc1"
   name: consul
   domain: consul
+  
   secretsBackend:
     vault:
       enabled: true
@@ -9,16 +10,17 @@ global:
       consulClientRole: consul-client
       consulCARole: consul-ca
       connectCA:
-        address: https://vault-internal.vault:8200
+        address: https://vault.vault:8200
         rootPKIPath: connect-root/
         intermediatePKIPath: connect-intermediate-dc1/
         additionalConfig: "{\"connect\": [{ \"ca_config\": [{ \"namespace\": \"admin\"}]}]}"
+      agentAnnotations: |
+        "vault.hashicorp.com/namespace": "admin"
   tls:
     enabled: true
     enableAutoEncrypt: true
     caCert:
       secretName: "pki/cert/ca"
-    verify: false
   federation:
     enabled: false
     createFederationSecret: false
@@ -35,26 +37,40 @@ server:
 connectInject:
   replicas: 1
   enabled: true
-  default: true
   transparentProxy:
     defaultEnabled: true
-  apiGateway:
-    managedGatewayClass:
-      serviceType: LoadBalancer
+
 prometheus:
   enabled: true
+
 controller:
   enabled: true
+
 meshGateway:
   enabled: false
   replicas: 1
+
+ingressGateways:
+  replicas: 1
+  enabled: true
+  gateways:
+    - name: ingress-gateway
+      service:
+        type: LoadBalancer
+terminatingGateways:
+  replicas: 1
+  enabled: true
+  gateways:
+    - name: terminating-gateway
+      service:
+        type: LoadBalancer
 ui:
+  enabled: true
   service:
-    enabled: true
     type: LoadBalancer
     port:
-      http: 8080
-      https: 443
+      https: 7443
+      http: 80
   metrics:
     provider: prometheus
     baseURL: http://prometheus-server

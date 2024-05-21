@@ -3,7 +3,7 @@ global:
    tlsDisable: false
 injector:
    enabled: true
-   authPath: auth/kubernetes-dc1
+   authPath: auth/kubernetes
    # webhook:
    #   namespaceSelector:
    #   matchLabels:
