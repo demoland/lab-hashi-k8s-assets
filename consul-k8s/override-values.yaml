@@ -52,7 +52,7 @@ meshGateway:
 
 ingressGateways:
   replicas: 1
-  enabled: true
+  enabled: false
   gateways:
     - name: ingress-gateway
       service:
