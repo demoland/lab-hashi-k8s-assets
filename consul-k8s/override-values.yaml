@@ -6,7 +6,7 @@ global:
     vault:
       enabled: true
       consulServerRole: consul-server
-      consulClientRole: consul-client
+      # consulClientRole: consul-client
       consulCARole: consul-ca
       connectCA:
         authMethodPath: "kubernetes"
@@ -31,8 +31,8 @@ global:
   gossipEncryption:
     secretName: consul/data/secret/gossip
     secretKey: gossip
-client: 
-  enabled: true
+# client: 
+#   enabled: true
 server:
   replicas: 1
   exposeGossipAndRPCPorts: true
