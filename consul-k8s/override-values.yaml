@@ -2,7 +2,6 @@ global:
   datacenter: "dc1"
   name: consul
   domain: consul
-  
   secretsBackend:
     vault:
       enabled: true
@@ -10,18 +9,12 @@ global:
       consulClientRole: consul-client
       consulCARole: consul-ca
       connectCA:
+        authMethodPath: "kubernetes"
+        rootPKIPath: "connect-root"
+        intermediatePKIPath: "connect-intermediate-dc1"
+        address: "https://vault.vault:8200"
         additionalConfig: |
-          {
-             "connect": [{
-               "ca_config": [{
-                   "address": "https://vault.vault:8200",
-                   "intermediate_pki_path": "connect-intermediate-dc1",
-                   "root_pki_path": "connect-root"
-                 }]
-              "ca_provider": "vault",
-              "enabled": true
-             }]
-          }
+          { "connect": [{ "ca_provider": "vault", "enabled": true }] }
       ca:
         secretName: vault-crt
         secretKey: vault.crt
@@ -38,6 +31,8 @@ global:
   gossipEncryption:
     secretName: consul/data/secret/gossip
     secretKey: gossip
+client: 
+  enabled: true
 server:
   replicas: 1
   exposeGossipAndRPCPorts: true
