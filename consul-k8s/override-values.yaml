@@ -10,12 +10,19 @@ global:
       consulClientRole: consul-client
       consulCARole: consul-ca
       connectCA:
-        address: https://vault.vault:8200
-        rootPKIPath: connect-root/
-        intermediatePKIPath: connect-intermediate-dc1/
-        additionalConfig: "{\"connect\": [{ \"ca_config\": [{ \"namespace\": \"admin\"}]}]}"
-      agentAnnotations: |
-        "vault.hashicorp.com/namespace": "admin"
+        additionalConfig: |
+          {
+             "connect": [{
+               "ca_config": [{
+                   "address": "https://vault.vault:8200",
+                   "intermediate_pki_path": "connect-intermediate-dc1",
+                   "root_pki_path": "connect-root",
+                   ""
+                 }]
+              "ca_provider": "vault",
+              "enabled": true
+             }]
+           }
   tls:
     enabled: true
     enableAutoEncrypt: true
@@ -52,7 +59,7 @@ meshGateway:
 
 ingressGateways:
   replicas: 1
-  enabled: false
+  enabled: true
   gateways:
     - name: ingress-gateway
       service:
@@ -69,7 +76,7 @@ ui:
   service:
     type: LoadBalancer
     port:
-      https: 9443
+      https: 7443
       http: 80
   metrics:
     provider: prometheus
