@@ -4,10 +4,6 @@ global:
 injector:
    enabled: true
    authPath: auth/kubernetes
-   # webhook:
-   #   namespaceSelector:
-   #   matchLabels:
-   #    sidecar-injector: enabled
 server:
    extraEnvironmentVars:
       VAULT_CACERT: /vault/userconfig/vault-ha-tls/vault.ca
