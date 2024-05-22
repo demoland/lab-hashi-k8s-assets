@@ -60,12 +60,9 @@ meshGateway:
   replicas: 1
 
 ingressGateways:
-  replicas: 1
   enabled: true
-  gateways:
-    - name: ingress-gateway
-      service:
-        type: LoadBalancer
+  defaults:
+    replicas: 1
 terminatingGateways:
   replicas: 1
   enabled: true
