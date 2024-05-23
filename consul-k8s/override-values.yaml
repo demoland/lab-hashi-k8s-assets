@@ -29,8 +29,6 @@ global:
   gossipEncryption:
     secretName: consul/data/secret/gossip
     secretKey: gossip
-# client: 
-#   enabled: true
 server:
   replicas: 1
   exposeGossipAndRPCPorts: true
