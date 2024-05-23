@@ -5,6 +5,7 @@ injector:
    enabled: true
    authPath: auth/kubernetes
 server:
+   logLevel: debug
    extraEnvironmentVars:
       VAULT_CACERT: /vault/userconfig/vault-ha-tls/vault.ca
       VAULT_TLSCERT: /vault/userconfig/vault-ha-tls/vault.crt
