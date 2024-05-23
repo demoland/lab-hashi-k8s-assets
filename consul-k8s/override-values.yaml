@@ -6,10 +6,8 @@ global:
     vault:
       enabled: true
       consulServerRole: consul-server
-      # consulClientRole: consul-client
       consulCARole: consul-ca
       connectCA:
-        authMethodPath: "kubernetes"
         rootPKIPath: "connect-root"
         intermediatePKIPath: "connect-intermediate-dc1"
         address: "https://vault.vault:8200"
