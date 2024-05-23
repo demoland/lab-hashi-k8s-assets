@@ -1,12 +1,10 @@
 global:
   enabled: true
   tlsDisable: false
-  namespace: vault
 injector:
   enabled: true
-  authPath: auth/kubernetes
+  authPath: auth/kubernetes-dc1
 server:
-  logLevel: debug
   extraEnvironmentVars:
     VAULT_CACERT: /vault/userconfig/vault-ha-tls/vault.ca
     VAULT_TLSCERT: /vault/userconfig/vault-ha-tls/vault.crt
@@ -24,7 +22,7 @@ server:
     enabled: false
   affinity: ""
   ha:
-    enabled: false
+    enabled: true
     replicas: 1
     raft:
       enabled: true
