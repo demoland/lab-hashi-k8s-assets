@@ -69,7 +69,6 @@ ui:
   service:
     type: LoadBalancer
     port:
-      https: 7443
       http: 8080
   metrics:
     provider: prometheus
