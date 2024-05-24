@@ -37,9 +37,12 @@ server:
 connectInject:
   replicas: 1
   enabled: true
+  default: true
   transparentProxy:
     defaultEnabled: true
-
+  apiGateway: 
+    managedGatewayClass:
+      serviceType: LoadBalancer
 prometheus:
   enabled: true
 
@@ -67,7 +70,7 @@ ui:
     type: LoadBalancer
     port:
       https: 7443
-      http: 80
+      http: 8080
   metrics:
     provider: prometheus
     baseURL: http://prometheus-server
