@@ -66,10 +66,6 @@ terminatingGateways:
         type: LoadBalancer
 ui:
   enabled: true
-  service:
-    type: LoadBalancer
-    port:
-      http: 8080
   metrics:
     provider: prometheus
     baseURL: http://prometheus-server
