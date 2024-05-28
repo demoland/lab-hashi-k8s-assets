@@ -23,7 +23,7 @@ server:
     enabled: false
   affinity: ""
   ha:
-    enabled: true
+    enabled: false
     replicas: 1
     raft:
       enabled: true
