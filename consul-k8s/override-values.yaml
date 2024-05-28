@@ -12,7 +12,7 @@ global:
         intermediatePKIPath: connect-intermediate-dc1
         address: https://vault.vault.svc:8200
         additionalConfig: |
-          { "connect": [{ "ca_provider": "vault", "enabled": true, "tls_skip_verify", true }] }
+          { "connect": [{ "ca_provider": "vault", "enabled": true}] }
       ca:
         secretName: vault-crt
         secretKey: vault.crt
@@ -47,6 +47,9 @@ prometheus:
   enabled: true
 ui:
   enabled: true
+  service:
+    nodePort:
+      http: 9443
   metrics:
     provider: prometheus
     baseURL: http://prometheus-server
