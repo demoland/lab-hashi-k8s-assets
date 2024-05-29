@@ -8,7 +8,7 @@ spec:
   gatewayClassName: consul
   listeners:
   - protocol: HTTP # options: HTTP or HTTPS
-    port: 80 # options: 80 or 443 or custom
+    port: 8080 # options: 80 or 443 or custom
     name: http
     allowedRoutes:
       namespaces:
