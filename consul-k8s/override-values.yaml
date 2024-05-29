@@ -49,7 +49,7 @@ ui:
   enabled: true
   service:
     nodePort:
-      http:  80
+      https: 9443
   metrics:
     provider: prometheus
     baseURL: http://prometheus-server
