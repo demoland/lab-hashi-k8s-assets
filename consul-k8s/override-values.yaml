@@ -21,6 +21,7 @@ global:
     enableAutoEncrypt: true
     caCert:
       secretName: pki/cert/ca
+    httpsOnly: false
   federation:
     enabled: false
     createFederationSecret: false
@@ -40,19 +41,16 @@ connectInject:
   default: true
   transparentProxy:
     defaultEnabled: true
-  apiGateway: 
-    managedGatewayClass:
-      serviceType: LoadBalancer
 prometheus:
   enabled: true
 ui:
-  enabled: true
-  service:
-    nodePort:
-      https: 9443
+  type: LoadBalancer
   metrics:
     provider: prometheus
     baseURL: http://prometheus-server
+ingress:
+  enabled: true
+  pathType: Prefix
 syncCatalog:
   enabled: true
   consulNamespaces:

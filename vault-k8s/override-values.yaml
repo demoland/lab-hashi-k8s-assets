@@ -47,8 +47,7 @@ server:
 ui:
   enabled: true
   serviceType: LoadBalancer
-  externalPort: 8443
+  externalPort: 8200
 livenessProbe:
   enabled: false
   path: "/v1/sys/health?standbyok=true"
-  port: 8443

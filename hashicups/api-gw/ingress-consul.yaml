@@ -11,7 +11,7 @@ spec:
       action: allow
 ---
 apiVersion: gateway.networking.k8s.io/v1beta1
-kind: HTTPRoute
+kind: TCPRoute
 metadata:
   name: route-consul
   namespace: consul
@@ -22,9 +22,10 @@ spec:
   rules:
   - matches:
     - path:
-        type: PathPrefix
+        type: Exact
         value: /consul
     backendRefs:
     - kind: Service
       name: consul-ui
-      port: 8500
+      namespace: consul
+      port: 80

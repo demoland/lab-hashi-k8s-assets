@@ -8,7 +8,7 @@ spec:
   gatewayClassName: consul
   listeners:
   - protocol: HTTP # options: HTTP or HTTPS
-    port: 8080 # options: 80 or 443 or custom
+    port: 8081 # options: 80 or 443 or custom
     name: http
     allowedRoutes:
       namespaces:
@@ -26,6 +26,21 @@ kind: ReferenceGrant
 metadata:
   name: consul-reference-grant
   namespace: default
+spec:
+  from:
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: consul
+  to:
+    - group: ""
+      kind: Service
+---
+## ReferenceGrants enable the Consul API Gateway to route traffic between different namespaces.
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: ReferenceGrant
+metadata:
+  name: consul-reference-grant
+  namespace: consul
 spec:
   from:
     - group: gateway.networking.k8s.io
