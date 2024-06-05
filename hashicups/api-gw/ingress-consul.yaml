@@ -22,9 +22,10 @@ spec:
   rules:
   - matches:
     - path:
-        type: PathPrefix
+        type: Exact
         value: /consul
     backendRefs:
     - kind: Service
       name: consul-ui
+      namespace: default
       port: 8500
