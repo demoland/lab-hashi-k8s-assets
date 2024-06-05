@@ -48,7 +48,8 @@ prometheus:
 ui:
   enabled: true
   service:
-    nodePort:
+    type: NodePort
+    port:
       https: 9443
   metrics:
     provider: prometheus
