@@ -3,10 +3,10 @@ data_dir   = "/data/consul"
 log_level  = "INFO"
 node_name  = "dfed-mini"
 server     = true
+bootstrap_expect = 1
 
 # Add bind address for the consul server
 bind_addr = "{{ GetPrivateInterfaces | include \"network\" \"192.168.86.0/24\" | attr \"address\" }}"
-
 
 connect {
   enabled = true
